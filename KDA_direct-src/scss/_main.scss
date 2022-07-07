@@ -1,0 +1,22 @@
+.main {
+   @include adaptiv-value(margin-top, 132, 106, 1);
+}
+
+.info,
+.about,
+.keys,
+.clients {
+   background-color: var(--black);
+}
+
+.address,
+.mail {
+   display: block;
+   font-family: 'Montserrat', sans-serif;
+   font-weight: 500;
+   font-style: normal;
+   @include adaptiv-value(font-size, 20, 16, 1);
+   @include adaptiv-value(line-height, 40, 30, 1);
+   color: var(--white);
+   cursor: default;
+}

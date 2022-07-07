@@ -1,0 +1,67 @@
+//переменные
+$minwidth: 320px;
+$pd: 30px;
+$maxWidth: 1440;
+$maxWidthContainer: 1170;
+$md1: $maxWidthContainer+$pd;
+
+@font-face {
+	font-family: 'Druk Wide';
+	src: url('../fonts/DrukWide-Medium.woff2') format('woff2'),
+		url('../fonts/DrukWide-Medium.woff') format('woff');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+
+html,
+body {
+	height: 100%;
+	min-width: $minwidth;
+}
+
+body {
+	position: relative;
+	background-color: var(--black);
+
+	&.lock {
+		overflow: hidden;
+	}
+}
+
+.wrapper {
+	width: 100%;
+	min-height: 100%;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+	position: relative;
+}
+
+.container {
+	max-width: $md1;
+	margin: 0 auto;
+	padding: 0 calc($pd/2);
+}
+
+.main {
+	flex: 1 1 auto;
+}
+
+.main {
+	display: flex;
+	flex-direction: column;
+}
+
+.footer {
+	flex: 0 0 auto;
+}
+
+.title {
+	font-family: 'Druk Wide', sans-serif;
+	font-weight: 500;
+	@include adaptiv-value(font-size, 30, 24, 1);
+	@include adaptiv-value(line-height, 36, 29, 1);
+	color: var(--white);
+}

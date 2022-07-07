@@ -1,0 +1,66 @@
+.actives {
+   position: relative;
+   background-color: var(--blue);
+
+   &__inner {
+      margin-top: 35px;
+      @include adaptiv-value(margin-bottom, 150, 40, 1);
+   }
+
+   &__title {
+      @include adaptiv-value(margin-left, 55, 0, 1);
+      @include adaptiv-value(margin-bottom, 60, 30, 1);
+   }
+
+   &__list {
+      padding-bottom: 20px;
+      display: flex;
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+         height: 10px;
+         background-color: var(--blue-light);
+      }
+
+      &::-webkit-scrollbar-track {
+         background-color: var(--blue-light);
+      }
+
+      &::-webkit-scrollbar-thumb {
+         border-radius: 10px;
+         background-color: var(--black);
+      }
+   }
+
+   &__item {
+      position: relative;
+      min-width: 240px;
+      height: 494px;
+      overflow: hidden;
+   }
+
+   &__item:not(:last-child) {
+      @include adaptiv-value(margin-right, 30, 15, 1);
+   }
+
+   &__img {
+      filter: brightness(0.6);
+      transition: filter, transform 0.4s ease-in-out;
+   }
+
+   &__item:hover &__img {
+      filter: brightness(1);
+      transform: scale(1.1);
+   }
+
+   &__text {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      font-family: 'Montserrat', sans-serif;
+      @include adaptiv-value(font-size, 25, 20, 1);
+      @include adaptiv-value(line-height, 30, 24, 1);
+      color: var(--white);
+   }
+}

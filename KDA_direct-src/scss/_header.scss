@@ -1,0 +1,99 @@
+.header {
+	position: fixed;
+	z-index: 4;
+	width: 100%;
+	background-color: var(--black);
+
+	&__inner {
+		position: relative;
+		margin-top: 40px;
+		margin-bottom: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		font-family: 'Druk Wide', sans-serif;
+	}
+}
+
+.label {
+	@include adaptiv-value(font-size, 40, 20, 1);
+	@include adaptiv-value(line-height, 52, 26, 1);
+	font-weight: 500;
+	color: var(--white);
+}
+
+.nav__links {
+	display: flex;
+	column-gap: 50px;
+}
+
+.nav__item {
+	position: relative;
+}
+
+.nav__item::after {
+	position: absolute;
+	content: '';
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 100%;
+	height: 2px;
+	background-color: var(--white);
+	transform: translateX(50vw);
+	transition: transform 0.4s ease;
+}
+
+.nav__item:hover::after {
+	transform: translateX(0);
+	animation: nav-hover 0.25s;
+	animation-delay: 0.4s;
+}
+
+@keyframes nav-hover {
+	0% {
+		transform: translateX(0);
+		animation-timing-function: ease-out;
+	}
+
+	30% {
+		transform: translateX(-45%);
+		animation-timing-function: ease-in;
+	}
+
+	60% {
+		transform: translateX(0);
+		animation-timing-function: ease-out;
+	}
+
+	85% {
+		transform: translateX(25%);
+		animation-timing-function: ease-in;
+	}
+
+	90% {
+		transform: translateX(0);
+		animation-timing-function: ease-out;
+	}
+
+	95% {
+		transform: translateX(-15%);
+		animation-timing-function: ease-in;
+	}
+
+	100% {
+		transform: translateX(0);
+		animation-timing-function: ease-out;
+	}
+}
+
+.nav__link {
+	font-weight: 500;
+	font-size: 16px;
+	line-height: 21px;
+	color: var(--white);
+}
+
+.menu__btn {
+	display: none;
+}

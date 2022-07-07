@@ -1,0 +1,205 @@
+.keys {
+   position: relative;
+
+   .container .keys__list {
+      margin-bottom: -1030px;
+   }
+
+   .container .keys__list.keys__list-active {
+      margin-bottom: 0;
+
+      +.keys__show-more .arrow-show {
+         transform: rotate(-90deg);
+      }
+   }
+
+   &__inner {
+      @include adaptiv-value(margin-top, 100, 40, 1);
+      @include adaptiv-value(margin-bottom, 100, 40, 1);
+   }
+
+   &__list {
+      @include adaptiv-value(margin-top, 60, 20, 1);
+      column-count: 2;
+      @include adaptiv-value(column-gap, 50, 20, 1);
+      transition: margin-bottom 0.7s ease;
+   }
+
+   &__list-active {
+      margin-bottom: 0;
+
+      +.keys__show-more .arrow-show {
+         transform: rotate(-90deg);
+      }
+   }
+
+   &__item {
+      @include adaptiv-value(margin-bottom, 40, 30, 1);
+      color: var(--white);
+      cursor: pointer;
+   }
+
+   &__item-title {
+      margin: 10px 0px 2px;
+      font-family: 'Druk Wide', sans-serif;
+      font-size: 16px;
+      line-height: 19px;
+   }
+
+   &__item-subtitle {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 500;
+      font-size: 12px;
+      line-height: 15px;
+   }
+
+   &__show-more {
+      position: absolute;
+      left: 47%;
+      width: 126px;
+      height: 126px;
+      bottom: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1px solid var(--white);
+      transform: translateX(-50%);
+      transition: transform 0.3s ease;
+   }
+
+   &__show-more:hover {
+      transform: translateX(-50%) scale(1.15);
+   }
+
+   &__show-more:active {
+      transform: translateX(-50%) scale(0.9);
+   }
+
+   &__show-more-text {
+      margin-left: -20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 12px;
+      line-height: 15px;
+      color: var(--white);
+   }
+}
+
+.arrow-show {
+   transform: rotate(90deg);
+   transition: transform 0.3s ease;
+}
+
+.keys-popup {
+   &__block {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: var(--black);
+      opacity: 0;
+      visibility: hidden;
+      overflow-y: auto;
+      transition: opacity 0.5s ease-in-out;
+   }
+
+   &-active .keys-popup__block {
+      opacity: 1;
+      visibility: visible;
+   }
+
+   &__inner {
+      margin: 50px 0;
+      color: var(--white);
+   }
+
+   &__back {
+      width: 66px;
+      height: 66px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include adaptiv-value(margin-bottom, 60, 40, 1);
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      line-height: 12px;
+      cursor: pointer;
+      border-radius: 50%;
+      border: 1px solid #FFFFFF;
+   }
+
+   &__back:hover {
+      transform: scale(1.15);
+   }
+
+   &__back:active {
+      transform: scale(0.9);
+   }
+
+   &__back-text {
+      margin-right: 10px;
+      align-self: flex-end;
+      color: var(--white);
+   }
+
+   &__content {
+      @include adaptiv-value(margin-bottom, 60, 20, 1);
+      display: flex;
+      justify-content: space-between;
+
+      .keys-popup__text {
+         @include mwidth(513);
+      }
+   }
+
+   &__content-left {
+      margin-right: 30px;
+   }
+
+   &__title {
+      font-family: 'Druk Wide', sans-serif;
+      font-size: 24px;
+      line-height: 29px;
+   }
+
+   &__subtitle {
+      margin: 10px 0px 20px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      line-height: 20px;
+   }
+
+   &__text {
+      font-family: 'Montserrat', sans-serif;
+      @include adaptiv-value(font-size, 20, 16, 1);
+      @include adaptiv-value(line-height, 24, 20, 1);
+   }
+
+   &__content-right {
+      @include mwidth(600);
+
+      img {
+         width: 100%;
+      }
+   }
+
+   &__items {
+      margin-bottom: 50px;
+   }
+
+   &__items &__title {
+      margin: 60px 0 10px;
+   }
+}
+
+.keys-popup-active .container .keys-popup__items .keys__list {
+   @include adaptiv-value(margin-bottom, 60, 40, 1);
+}
+
+.arrow-back {
+   transform: rotate(180deg);
+}
